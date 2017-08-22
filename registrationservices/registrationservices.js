@@ -69,9 +69,7 @@
 
                 var seconds = 11;
 
-                html += '<div class="continueTimeText formDialogFooterItem" style="margin: 1.5em 0 .5em;">' + globalize.translate('sharedcomponents#ContinueInSecondsValue', seconds) + '</div>';
-
-                html += '<button is="emby-button" type="button" class="raised button-cancel block btnContinue block formDialogFooterItem hide"><span>' + globalize.translate('sharedcomponents#Continue') + '</span></button>';
+                html += '<button is="emby-button" type="button" class="raised button-cancel block btnContinue block formDialogFooterItem"><span>' + globalize.translate('sharedcomponents#Continue') + '</span></button>';
 
                 html += '</div>';
 
@@ -81,18 +79,6 @@
                 dlg.innerHTML = html;
 
                 var isRejected = true;
-
-                var timeTextInterval = setInterval(function () {
-
-                    seconds -= 1;
-                    if (seconds <= 0) {
-                        dlg.querySelector('.continueTimeText').classList.add('hide');
-                        dlg.querySelector('.btnContinue').classList.remove('hide');
-                    } else {
-                        dlg.querySelector('.continueTimeText').innerHTML = globalize.translate('sharedcomponents#ContinueInSecondsValue', seconds);
-                    }
-
-                }, 1000);
 
                 var i, length;
                 var btnPurchases = dlg.querySelectorAll('.buttonPremiereInfo');
